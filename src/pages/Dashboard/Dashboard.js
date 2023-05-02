@@ -182,7 +182,7 @@ const Dashboard = () => {
                     <p>Catalog:</p>
                   </TabPanel>
                   <TabPanel>
-                    <Graph/>
+                    {/*<Graph/>*/}
                     <PointHistory/>
                   </TabPanel>
                 </TabPanels>

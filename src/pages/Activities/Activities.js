@@ -124,7 +124,7 @@ const Activities = () => {
     return (
         <>
             <Text fontSize="3xl">Activities</Text>
-            <Button href = '/activities/create'> <Link href="activities/create">Create Activity</Link></Button>
+            {/*<Button href = '/activities/create'> <Link href="activities/create">Create Activity</Link></Button>*/}
             <TableContainer>
                 <Table variant='simple'>
                     <TableCaption>Activities</TableCaption>
