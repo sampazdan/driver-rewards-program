@@ -1,0 +1,15 @@
+.landing-header {
+    text-align: center;
+    font-size: 3em;
+    padding: .5em;
+}
+
+.logregbutton {
+    align-content: center;
+    display: block;
+    margin: 0 auto;
+}
+
+.landing-container {
+    /*background-color: whitesmoke;*/
+}
