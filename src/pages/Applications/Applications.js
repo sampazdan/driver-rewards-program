@@ -28,7 +28,7 @@ const Applications = () => {
     const [loading, setLoading] = useState(true)
     const [rowLoading, setRowLoading] = useState(null)
     const [accepted, setAccepted] = useState([])
-    const currentSponsor = 'testsponsor'
+    const currentSponsor = useState(Cookies.get('TruckSponsor'))[0]
 
     useEffect(() => {
         setLoading(true)

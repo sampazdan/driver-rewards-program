@@ -37,7 +37,6 @@ function Catalog() {
     const [search, setSearch] = useState('')
     const [selected, setSelected] = useState([])
 
-
     useEffect(() => {
 
         const fetchUserAndCatalog = async () => {
@@ -155,19 +154,41 @@ function Catalog() {
                 setError("Error getting itunes data")
                 setLoading(false)
             })
-            //
-            // const formattedItems = returnedItems.map((item) => {
-            //     console.log(item.trackName)
-            //     const newItem = {
-            //         id: item.trackId,
-            //         item: item,
-            //         price: item.trackPrice
-            //     }
-            //     return newItem
-            // })
 
-            //setCatalog(returnedItems)
         }
+
+        const checkout = async () => {
+
+            let total = 0
+
+            selected.forEach((item) => {
+                total += item.price
+            })
+
+            console.log("TOTAL = " + total)
+
+            const params = new URLSearchParams([['userId', user.username], ['points', -total]])
+
+            const config = {
+                method: 'patch',
+                url: 'https://o63s0n6hl9.execute-api.us-east-1.amazonaws.com/login-demo/points',
+                headers: {
+                    'x-api-key': 'x6GaDjuUzPa0MBiphcMoo30GQJm06K6IaD6sSPWf',
+                    'Content-Type': 'application/json',
+                    'Authorization': authtools.getAuthHeader()
+                },
+                params: params,
+            }
+
+            const returnedItems = await axios(config).then((response) => {
+                // console.log("RESULTS = " + JSON.stringify(response))
+                setLoading(false)
+                return response.data.results
+            })
+
+        }
+
+        //checkout()
 
         const addToSelected = (item) => {
             if (selected.some(addedItem => addedItem.id === item.id)) {
@@ -180,7 +201,7 @@ function Catalog() {
         };
 
         const getButtonText = (item) => {
-            const text = selected.some(addedItem => addedItem.id === item.id) ? 'Item added' : (view === 'sponsor-add' ? 'Add item' : 'View');
+            const text = selected.some(addedItem => addedItem.id === item.id) ? 'Item added' : (view === 'sponsor-add' ? 'Add item' : 'Add to cart');
             return text
         };
 
@@ -191,7 +212,24 @@ function Catalog() {
         return (
             <div class="catalog">
                 <h1>Catalog</h1>
-                {view === 'sponsor' && (
+                {view === 'driver' && selected.length > 0 && (
+                    <>
+                    <Center>
+                        <Text fontSize='xl'>
+                            Cart total: {selected.reduce((total, item) => total + item.price, 0)} points
+                        </Text>
+                    </Center>
+                    <Center>
+                       <Button colorScheme='green' onClick ={()=> {
+                            checkout()
+                            setSelected([])
+                       }}>Redeem</Button>
+                    </Center>
+                    </>
+                )}
+
+
+                {view === 'sponsor' || view === 'admin' && (
                     <Button onClick = {() => {
                         console.log("GOING TO ADD")
                         setView('sponsor-add')

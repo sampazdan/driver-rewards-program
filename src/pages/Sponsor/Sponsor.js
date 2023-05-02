@@ -14,6 +14,8 @@ import {
     Text,
     SelectField,
     Center,
+    Link,
+    NavButton,
     Progress, Table, Th, Tr, Thead,
 } from '@chakra-ui/react'
 import {useEffect, useState} from "react";
@@ -22,11 +24,13 @@ import * as authtools from "../../authtools";
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import Loading from "../../components/Loading/loading";
+import * as PropTypes from "prop-types";
 
 
 const baseUrl = 'https://o63s0n6hl9.execute-api.us-east-1.amazonaws.com/login-demo/'
 
 const mySponsor = Cookies.get('TruckSponsor')
+
 
 export const Sponsor = () => {
 
@@ -96,24 +100,26 @@ export const Sponsor = () => {
                         }}/>
                         <Divider marginTop = '20px' marginBottom = '20px'/>
                         <Center>
-                            <Button>View Pending Applications</Button>
+                            <Link href='/applications' to='/applications' passHref>
+                                <Button as = 'a'>View Pending Applications</Button>
+                            </Link>
                         </Center>
                     </Box>
-                <Center>
-                    <Text marginTop= '30px' fontSize='2xl'>Users</Text>
-                </Center>
-                    <Center>
-                    <Table>
-                        <Thead>
-                            <Tr>
-                                <Th>Name</Th>
-                                <Th>Email</Th>
-                                <Th>DL#</Th>
-                                <Th>Points</Th>
-                            </Tr>
-                        </Thead>
-                    </Table>
-                    </Center>
+                {/*<Center>*/}
+                {/*    <Text marginTop= '30px' fontSize='2xl'>Users</Text>*/}
+                {/*</Center>*/}
+                {/*    <Center>*/}
+                {/*    <Table>*/}
+                {/*        <Thead>*/}
+                {/*            <Tr>*/}
+                {/*                <Th>Name</Th>*/}
+                {/*                <Th>Email</Th>*/}
+                {/*                <Th>DL#</Th>*/}
+                {/*                <Th>Points</Th>*/}
+                {/*            </Tr>*/}
+                {/*        </Thead>*/}
+                {/*    </Table>*/}
+                {/*    </Center>*/}
 
 
             </Container>

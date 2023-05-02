@@ -1,0 +1,8 @@
+#sort-button {
+    font-size: 500px;
+}
+
+.sort-options {
+    margin-left: 1em;
+    align-content: flex-end;
+}

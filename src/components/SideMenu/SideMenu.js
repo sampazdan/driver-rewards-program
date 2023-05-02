@@ -121,7 +121,11 @@ export default function Sidebar() {
                             <Link href= '/sponsor' to='/sponsor'>{mySponsor}</Link>
                         </Button>
                     </Center>
-                ) : ''}
+                ) : (
+                    <Center>
+                        <Text fontSize='xl' color='green'>Points: {user.points}</Text>
+                    </Center>
+                )}
 
                 <Flex mt={4} align="center">
                     <Avatar size="sm" src={user.image} />

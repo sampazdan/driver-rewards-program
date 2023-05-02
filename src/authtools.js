@@ -52,12 +52,13 @@ export const authenticate = (username, password) => {
         Cookies.set('TruckUser', response.data.user.username)
         Cookies.set('TruckSponsor', response.data.user.sponsor)
         var accType = ''
+        console.log("ACCOUNT TYPE = " + response.data.user.accountType)
         if(response.data.user.accountType === 3){
             accType = 'admin'
         } else if (response.data.user.accountType === 2){
             accType = 'sponsor'
         } else {
-            accType = 'admin'
+            accType = 'driver'
         }
         Cookies.set('TruckAccountType', accType)
         //Cookies.set('TruckUser', response.data.user.sponsorId)
