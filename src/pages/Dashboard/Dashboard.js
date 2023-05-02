@@ -123,7 +123,7 @@ const Dashboard = () => {
                 </TabList>
                 <TabPanels>
                   <TabPanel>
-                    {/*<Button onClick={() => { window.location.href = '/activities/create' }} href="/activities/create">Create Activity</Button>*/}
+                    <Button onClick={() => { window.location.href = '/activities/create' }} href="/activities/create">Create Activity</Button>
                     <Activities />
                   </TabPanel>
                   <TabPanel>
