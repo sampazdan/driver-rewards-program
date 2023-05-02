@@ -405,6 +405,14 @@ export const Login = () => {
                 <Text align="center">
                     We'll email you when you're accepted.
                 </Text>
+                <Center>
+                    <Button variant="link" colorScheme="blue" onClick={(event) => {
+                        setFunc('login')
+                    }}>
+                        <BiArrowBack/>
+                        &nbsp;Back to Login
+                    </Button>
+                </Center>
             </>
         )
     }

@@ -61,9 +61,16 @@ const Users = () => {
     if (sParam === []) {
         sParam = ''
     }
+
+    const accountType = Cookies.get("TruckAccountType")
     
     //API call
-    const params = new URLSearchParams([['sponsorIds', sParam]]);
+    let params = new URLSearchParams([['sponsorId', sParam]]);
+
+    // if(accountType === 'admin'){
+    //     params = new URLSearchParams([]);
+    // }
+
         var config = {
             method: 'get',
             url: 'https://o63s0n6hl9.execute-api.us-east-1.amazonaws.com/login-demo/users',

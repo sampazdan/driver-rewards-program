@@ -11,6 +11,7 @@ import utils from '../../utils';
 import { FaEnvelope } from 'react-icons/fa';
 import { IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerCloseButton, DrawerHeader, DrawerBody } from '@chakra-ui/react';
 import Messages from '../Messages/Messages';
+import Users from '../Users/Users'
 
 const Dashboard = () => {
   const [user, setUser] = useState({});
@@ -87,6 +88,24 @@ const Dashboard = () => {
       return (
           <Router>
             <div>
+              <IconButton
+                  icon={<FaEnvelope />}
+                  className="message"
+                  aria-label="Messages"
+                  onClick={handleOpenMessages}
+                  style={{ position: 'absolute', top: '20px', right: '10px' }} // Added style to position the icon
+              />
+
+              <Drawer isOpen={isMessagesOpen} placement="right" onClose={() => setIsMessagesOpen(false)}>
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader>Messages</DrawerHeader>
+                  <DrawerBody>
+                    <Messages messages={messages} unreadMessages={unreadMessages} sendMessage={handleSendMessage} />
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
 
               <Select value={adview} onChange={(event) => setAdview(parseInt(event.target.value))} variant="filled" maxWidth="200px" mx="auto" mb="1em">
                 <option value={0}>Admin</option>
@@ -104,14 +123,14 @@ const Dashboard = () => {
                 </TabList>
                 <TabPanels>
                   <TabPanel>
-                    <Button onClick={() => { window.location.href = '/activities/create' }} href="/activities/create">Create Activity</Button>
+                    {/*<Button onClick={() => { window.location.href = '/activities/create' }} href="/activities/create">Create Activity</Button>*/}
                     <Activities />
                   </TabPanel>
                   <TabPanel>
                     <p>Catalog:</p>
                   </TabPanel>
                   <TabPanel>
-                    My Drivers:
+                    <Users/>
                   </TabPanel>
                 </TabPanels>
               </Tabs>
@@ -125,6 +144,25 @@ const Dashboard = () => {
       return (
           <Router>
             <div>
+              <IconButton
+                  icon={<FaEnvelope />}
+                  className="message"
+                  aria-label="Messages"
+                  onClick={handleOpenMessages}
+                  style={{ position: 'absolute', top: '20px', right: '10px' }} // Added style to position the icon
+              />
+
+              <Drawer isOpen={isMessagesOpen} placement="right" onClose={() => setIsMessagesOpen(false)}>
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader>Messages</DrawerHeader>
+                  <DrawerBody>
+                    <Messages messages={messages} unreadMessages={unreadMessages} sendMessage={handleSendMessage} />
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
+
               <Select value={adview} onChange={(event) => setAdview(parseInt(event.target.value))} variant="filled" maxWidth="200px" mx="auto" mb="1em">
                 <option value={0}>Admin</option>
                 <option value={1}>Sponsor</option>
@@ -169,6 +207,26 @@ const Dashboard = () => {
     return (
         <Router>
           <div>
+
+
+            <IconButton
+                icon={<FaEnvelope />}
+                className="message"
+                aria-label="Messages"
+                onClick={handleOpenMessages}
+                style={{ position: 'absolute', top: '20px', right: '10px' }} // Added style to position the icon
+            />
+
+            <Drawer isOpen={isMessagesOpen} placement="right" onClose={() => setIsMessagesOpen(false)}>
+              <DrawerOverlay />
+              <DrawerContent>
+                <DrawerCloseButton />
+                <DrawerHeader>Messages</DrawerHeader>
+                <DrawerBody>
+                  <Messages messages={messages} unreadMessages={unreadMessages} sendMessage={handleSendMessage} />
+                </DrawerBody>
+              </DrawerContent>
+            </Drawer>
             <Tabs isFitted variant="soft-rounded" colorScheme="green">
               <TabList mb="1em">
                 <Tab>Activities</Tab>
@@ -204,6 +262,24 @@ const Dashboard = () => {
                 <option value={0}>Sponsor</option>
                 <option value={1}>Driver</option>
               </Select>
+              <IconButton
+                  icon={<FaEnvelope />}
+                  className="message"
+                  aria-label="Messages"
+                  onClick={handleOpenMessages}
+                  style={{ position: 'absolute', top: '20px', right: '10px' }} // Added style to position the icon
+              />
+
+              <Drawer isOpen={isMessagesOpen} placement="right" onClose={() => setIsMessagesOpen(false)}>
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader>Messages</DrawerHeader>
+                  <DrawerBody>
+                    <Messages messages={messages} unreadMessages={unreadMessages} sendMessage={handleSendMessage} />
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
               <Tabs isFitted variant="soft-rounded" colorScheme="green">
                 <TabList mb="1em">
                   <Tab>Activities</Tab>
@@ -236,7 +312,24 @@ const Dashboard = () => {
                 <option value={0}>Sponsor</option>
                 <option value={1}>Driver</option>
               </Select>
+              <IconButton
+                  icon={<FaEnvelope />}
+                  className="message"
+                  aria-label="Messages"
+                  onClick={handleOpenMessages}
+                  style={{ position: 'absolute', top: '20px', right: '10px' }} // Added style to position the icon
+              />
 
+              <Drawer isOpen={isMessagesOpen} placement="right" onClose={() => setIsMessagesOpen(false)}>
+                <DrawerOverlay />
+                <DrawerContent>
+                  <DrawerCloseButton />
+                  <DrawerHeader>Messages</DrawerHeader>
+                  <DrawerBody>
+                    <Messages messages={messages} unreadMessages={unreadMessages} sendMessage={handleSendMessage} />
+                  </DrawerBody>
+                </DrawerContent>
+              </Drawer>
               <Tabs isFitted variant="soft-rounded" colorScheme="green">
                 <TabList mb="1em">
                   <Tab>Activities</Tab>
